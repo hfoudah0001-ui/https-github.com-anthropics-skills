@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>جاهز — إعلان</title>
+<style>
+@font-face{font-family:PX;src:url(fonts/PlexArabic-400.woff2) format('woff2');font-weight:400;font-display:block}
+@font-face{font-family:PX;src:url(fonts/PlexArabic-600.woff2) format('woff2');font-weight:600;font-display:block}
+@font-face{font-family:PX;src:url(fonts/PlexArabic-700.woff2) format('woff2');font-weight:700;font-display:block}
+@font-face{font-family:PM;src:url(fonts/PlexMono-500.ttf) format('truetype');font-weight:500;font-display:block}
+
+:root{
+  --ink:#101822; --ink2:#18222F; --paper:#EAEEF2; --card:#FFFFFF;
+  --line:#D3DBE4; --soft:#53637A; --dark:#16202E;
+  --marker:#1F6F5C; --green:#35A98C; --miss:#BE4430; --lamp:#E8B33C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;
+  font-family:PX,'Segoe UI',Tahoma,sans-serif;color:var(--dark);-webkit-font-smoothing:antialiased}
+
+.scene{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
+  padding:0 96px;will-change:opacity,transform}
+.dark{background:var(--ink);color:#fff}
+.paper{background:var(--paper)}
+.red{background:var(--miss);color:#fff}
+
+/* شريط تقدّم الفيديو */
+#bar{position:absolute;top:0;right:0;height:7px;background:var(--lamp);width:0;z-index:9}
+/* توقيع ثابت */
+#sig{position:absolute;bottom:64px;right:0;left:0;text-align:center;font-size:26px;
+  letter-spacing:.06em;color:#8797AC;z-index:8;font-weight:600}
+
+.eyebrow{font-size:40px;font-weight:600;color:var(--lamp);letter-spacing:.04em}
+.count{font-family:PM,monospace;font-size:172px;font-weight:500;letter-spacing:-.03em;
+  line-height:1;margin:26px 0 0;color:#fff;font-variant-numeric:tabular-nums}
+.big{font-size:104px;font-weight:700;line-height:1.14;letter-spacing:-.02em;margin-top:44px}
+.mid{font-size:74px;font-weight:700;line-height:1.22;letter-spacing:-.015em}
+.sub{font-size:44px;font-weight:400;line-height:1.6;color:#A7B4C6}
+.subd{font-size:44px;font-weight:400;line-height:1.6;color:var(--soft)}
+.amber{color:var(--lamp)}
+
+/* ٢ — قائمة الفصول */
+.chaps{display:flex;flex-wrap:wrap;gap:16px;margin-top:56px}
+.chip{font-size:36px;font-weight:600;padding:16px 26px;border-radius:14px;
+  border:2px solid #2C3A4C;color:#68788E}
+.chip.on{border-color:var(--green);color:#fff;background:rgba(53,169,140,.16)}
+
+/* ٣ — المعادلة */
+.fx{display:flex;align-items:center;gap:34px;flex-wrap:wrap;margin-top:52px}
+.fxb{font-size:72px;font-weight:700;background:var(--card);border:2px solid var(--line);
+  border-radius:18px;padding:22px 34px}
+.fxx{font-family:PM,monospace;font-size:82px;font-weight:500;color:var(--lamp)}
+.eq{font-size:56px;font-weight:600;color:var(--marker);margin-top:46px}
+.rule{height:6px;background:var(--marker);border-radius:3px;margin-top:22px;width:0}
+
+/* ٤ و٦ — واجهة التطبيق */
+.app{background:var(--card);border:2px solid var(--line);border-radius:34px;padding:44px;margin-top:48px}
+.arow{display:grid;grid-template-columns:1fr 210px;gap:20px;align-items:center;margin-top:24px}
+.aname{font-size:46px;font-weight:600}
+.atag{font-size:30px;font-weight:600;text-align:center;padding:14px 0;border-radius:12px;
+  background:#EDF2F6;color:var(--soft)}
+.atag.hi{background:#FBEDEA;color:var(--miss)}
+.abtn{margin-top:40px;background:var(--marker);color:#fff;font-size:50px;font-weight:700;
+  text-align:center;padding:30px;border-radius:20px}
+.cap{font-size:46px;font-weight:600;color:var(--soft)}
+
+/* ٥ — بطاقة الترك */
+.dropcard{border:4px solid rgba(255,255,255,.5);border-radius:32px;padding:56px 48px;margin-top:40px}
+.droptitle{font-size:96px;font-weight:700;line-height:1.14;letter-spacing:-.02em}
+.dropitems{font-size:62px;font-weight:600;margin-top:34px;line-height:1.5}
+.strike{position:relative;display:inline-block}
+.strike i{position:absolute;right:0;top:52%;height:6px;background:#fff;width:0;border-radius:3px}
+.dropwhy{font-size:42px;line-height:1.65;margin-top:32px;color:rgba(255,255,255,.88)}
+.dropfoot{font-size:46px;font-weight:700;margin-top:52px}
+
+/* ٦ — الجلسات */
+.dayhead{display:flex;justify-content:space-between;align-items:baseline;
+  border-bottom:5px solid var(--dark);padding-bottom:18px;font-size:48px;font-weight:700}
+.dayhead span:last-child{font-family:PM,monospace;font-size:34px;font-weight:500;color:var(--soft)}
+.sess{display:flex;align-items:center;gap:24px;padding:28px 0;border-bottom:2px solid var(--line)}
+.box{width:46px;height:46px;border:4px solid var(--line);border-radius:10px;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center}
+.box.on{background:var(--marker);border-color:var(--marker)}
+.box svg{width:28px;height:28px;opacity:0}
+.st{flex:1}
+.smin{font-family:PM,monospace;font-size:30px;color:var(--marker);font-weight:500}
+.sname{font-size:46px;font-weight:600}
+.track{height:14px;background:var(--line);border-radius:7px;margin-top:40px;overflow:hidden}
+.track i{display:block;height:100%;background:var(--marker);width:0}
+.nums{display:flex;gap:20px;margin-top:34px}
+.num{flex:1;background:var(--card);border:2px solid var(--line);border-radius:20px;padding:24px}
+.num b{display:block;font-family:PM,monospace;font-size:54px;font-weight:500;line-height:1.2}
+.num span{font-size:28px;color:var(--soft)}
+
+/* ٧ — الختام */
+.logo{width:180px;height:180px;border-radius:44px;background:var(--marker);
+  display:flex;align-items:center;justify-content:center;margin:0 auto}
+.logo svg{width:112px;height:112px}
+.name{font-size:132px;font-weight:700;text-align:center;margin-top:36px;letter-spacing:-.02em}
+.pills{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.pill{font-size:36px;font-weight:600;border:2px solid #2C3A4C;color:#C9D4E1;
+  border-radius:100px;padding:18px 32px}
+.cta{font-size:64px;font-weight:700;text-align:center;margin-top:56px;color:var(--lamp)}
+.last{font-size:44px;text-align:center;margin-top:26px;color:#A7B4C6}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="bar"></div>
+
+  <!-- ١ — الخطّاف -->
+  <div class="scene dark" id="s1">
+    <p class="eyebrow" id="s1a">الاختبار بعد</p>
+    <p class="count" id="s1c">47:12:08</p>
+    <p class="big" id="s1b">وتسعة فصول<br>لم تفتحها.</p>
+  </div>
+
+  <!-- ٢ — الخطأ -->
+  <div class="scene dark" id="s2">
+    <p class="big" id="s2t">وأنت بدأت<br>من الفصل الأول.</p>
+    <div class="chaps" id="s2l"></div>
+    <p class="big amber" id="s2s" style="font-size:72px;margin-top:52px">كالعادة.</p>
+  </div>
+
+  <!-- ٣ — القاعدة -->
+  <div class="scene paper" id="s3">
+    <p class="mid" id="s3k">الفصل الأول<br>ليس الأهم.</p>
+    <div class="fx">
+      <span class="fxb" id="s3f1">وزنه في الاختبار</span>
+      <span class="fxx" id="s3x">×</span>
+      <span class="fxb" id="s3f2">ضعفك فيه</span>
+    </div>
+    <p class="eq" id="s3e">= أين تصرف الساعات الباقية</p>
+    <div class="rule" id="s3r"></div>
+  </div>
+
+  <!-- ٤ — الأداة -->
+  <div class="scene paper" id="s4">
+    <p class="cap" id="s4c">اكتب مواضيعك مرة واحدة</p>
+    <div class="app" id="s4a">
+      <div class="arow" id="s4r0"><span class="aname">ميكانيكا الموائع</span><span class="atag">أساسي</span></div>
+      <div class="arow" id="s4r1"><span class="aname">القص والانحناء</span><span class="atag hi">ضعيف</span></div>
+      <div class="arow" id="s4r2"><span class="aname">الالتواء</span><span class="atag">نادر</span></div>
+      <div class="abtn" id="s4b">اصنع الخطة</div>
+    </div>
+  </div>
+
+  <!-- ٥ — القرار -->
+  <div class="scene red" id="s5">
+    <div class="dropcard" id="s5c">
+      <p class="droptitle" id="s5t">لا تفتح<br>هذه المواضيع</p>
+      <p class="dropitems" id="s5i"><span class="strike">الالتواء<i id="s5k1"></i></span> ·
+        <span class="strike">الإجهاد الحراري<i id="s5k2"></i></span></p>
+      <p class="dropwhy" id="s5w">وزنها في الاختبار أقل من كلفتها بوقتك.</p>
+    </div>
+    <p class="dropfoot" id="s5f">تركها قرار، لا تقصير.</p>
+  </div>
+
+  <!-- ٦ — الخطة تعمل -->
+  <div class="scene paper" id="s6">
+    <p class="cap" id="s6c">خطة بالدقيقة، ومؤقت لكل جلسة</p>
+    <div class="app" id="s6a">
+      <div class="dayhead" id="s6h"><span>اليوم</span><span>275 د</span></div>
+      <div class="sess" id="s6s0"><span class="box" id="s6b0"><svg viewBox="0 0 24 24" fill="none"
+        stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6 10-12"/></svg></span>
+        <span class="st"><span class="smin">60 دقيقة</span><p class="sname">ميكانيكا الموائع</p></span></div>
+      <div class="sess" id="s6s1"><span class="box" id="s6b1"><svg viewBox="0 0 24 24" fill="none"
+        stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6 10-12"/></svg></span>
+        <span class="st"><span class="smin">55 دقيقة</span><p class="sname">القص والانحناء</p></span></div>
+      <div class="sess" id="s6s2" style="border-bottom:0"><span class="box" id="s6b2"><svg viewBox="0 0 24 24" fill="none"
+        stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6 10-12"/></svg></span>
+        <span class="st"><span class="smin">45 دقيقة</span><p class="sname">الاتزان والعزوم</p></span></div>
+      <div class="track"><i id="s6p"></i></div>
+    </div>
+    <div class="nums" id="s6n">
+      <div class="num"><b id="s6n0">0</b><span>دقيقة اليوم</span></div>
+      <div class="num"><b id="s6n1">0</b><span>جلسة اليوم</span></div>
+      <div class="num"><b id="s6n2">0</b><span>يوم متتابع</span></div>
+    </div>
+  </div>
+
+  <!-- ٧ — الختام -->
+  <div class="scene dark" id="s7">
+    <div class="logo" id="s7l"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4"
+      stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6"/></svg></div>
+    <p class="name" id="s7n">جاهز</p>
+    <div class="pills">
+      <span class="pill" id="s7p0">مجاني</span>
+      <span class="pill" id="s7p1">بلا حساب</span>
+      <span class="pill" id="s7p2">يعمل بدون إنترنت</span>
+    </div>
+    <p class="cta" id="s7c">الرابط في البايو</p>
+    <p class="last" id="s7f">ابدأ قبل أن يبدأ العدّ.</p>
+  </div>
+
+  <p id="sig">FOUDAH LABS</p>
+</div>
+
+<script>
+/* ═══ الخط الزمني — كل لقطة تُحسب من الزمن، فلا يعتمد شيء على تشغيل حقيقي.
+   render.js ينادي __seek(t) لكل إطار ثم يلتقط الصورة. ═══ */
+const $ = id => document.getElementById(id);
+const cl = (v,a,b) => Math.min(b, Math.max(a,v));
+const E  = p => 1 - Math.pow(1 - p, 3);              // تباطؤ خارج
+const EB = p => { const c=1.70158+1; return 1 + c*Math.pow(p-1,3) + 1.70158*Math.pow(p-1,2); }; // ارتداد خفيف
+
+const DUR = 25.0;
+const SC = [['s1',0,2.8], ['s2',2.8,5.6], ['s3',5.6,8.8], ['s4',8.8,12.4],
+            ['s5',12.4,16.6], ['s6',16.6,21.0], ['s7',21.0,25.0]];
+
+/* ظهور عنصر: تأخير، مدة، وإزاحة رأسية */
+function up(el, lt, delay, dur, dy){
+  const p = E(cl((lt - delay) / (dur || .45), 0, 1));
+  el.style.opacity = p;
+  el.style.transform = 'translateY(' + ((1 - p) * (dy === undefined ? 46 : dy)) + 'px)';
+  return p;
+}
+function pop(el, lt, delay, dur){
+  const p = cl((lt - delay) / (dur || .45), 0, 1);
+  el.style.opacity = cl(p * 2, 0, 1);
+  el.style.transform = 'scale(' + (0.86 + EB(p) * 0.14) + ')';
+}
+function count(el, lt, delay, dur, to){
+  const p = E(cl((lt - delay) / dur, 0, 1));
+  el.textContent = Math.round(to * p);
+}
+
+// فصول المشهد الثاني
+(function(){
+  const names = ['الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع'];
+  $('s2l').innerHTML = names.map((n,i) =>
+    '<span class="chip' + (i === 0 ? ' on' : '') + '" id="ch' + i + '">الفصل ' + n + '</span>').join('');
+})();
+
+function s1(lt){
+  up($('s1a'), lt, 0.10);
+  up($('s1c'), lt, 0.22, .5, 34);
+  const total = 47*3600 + 12*60 + 8 - Math.floor(lt * 1400);   // يركض العدّ
+  const h = Math.floor(total/3600), m = Math.floor(total%3600/60), s = total%60;
+  const p2 = n => String(n).padStart(2,'0');
+  $('s1c').textContent = p2(h) + ':' + p2(m) + ':' + p2(s);
+  up($('s1b'), lt, 1.05);
+}
+function s2(lt){
+  up($('s2t'), lt, 0.05);
+  for(let i = 0; i < 9; i++){
+    const c = $('ch' + i);
+    const p = E(cl((lt - (0.45 + i * 0.055)) / .35, 0, 1));
+    c.style.opacity = p; c.style.transform = 'translateY(' + ((1-p) * 22) + 'px)';
+  }
+  up($('s2s'), lt, 1.45);
+}
+function s3(lt){
+  up($('s3k'), lt, 0.05);
+  up($('s3f1'), lt, 0.55, .4, 30);
+  pop($('s3x'), lt, 0.85, .35);
+  up($('s3f2'), lt, 1.05, .4, 30);
+  up($('s3e'), lt, 1.6);
+  $('s3r').style.width = (E(cl((lt - 1.85) / .55, 0, 1)) * 620) + 'px';
+}
+function s4(lt){
+  up($('s4c'), lt, 0.05, .4, 26);
+  const p = E(cl((lt - 0.2) / .5, 0, 1));
+  $('s4a').style.opacity = p;
+  $('s4a').style.transform = 'scale(' + (0.96 + p * 0.04) + ')';
+  for(let i = 0; i < 3; i++) up($('s4r' + i), lt, 0.55 + i * 0.22, .4, 26);
+  const bp = E(cl((lt - 1.5) / .4, 0, 1));
+  const tap = cl((lt - 2.25) / .18, 0, 1) * cl((2.7 - lt) / .18, 0, 1);   // نبضة الضغط
+  $('s4b').style.opacity = bp;
+  $('s4b').style.transform = 'scale(' + (0.94 + bp * 0.06 - tap * 0.045) + ')';
+}
+function s5(lt){
+  pop($('s5c'), lt, 0.02, .5);
+  up($('s5t'), lt, 0.28, .4, 34);
+  up($('s5i'), lt, 0.75, .4, 26);
+  const k = E(cl((lt - 1.15) / .45, 0, 1));
+  $('s5k1').style.width = (k * 100) + '%';
+  $('s5k2').style.width = (E(cl((lt - 1.35) / .45, 0, 1)) * 100) + '%';
+  up($('s5w'), lt, 1.5, .4, 22);
+  up($('s5f'), lt, 2.3);
+}
+function s6(lt){
+  up($('s6c'), lt, 0.05, .4, 26);
+  const p = E(cl((lt - 0.18) / .5, 0, 1));
+  $('s6a').style.opacity = p;
+  $('s6a').style.transform = 'scale(' + (0.96 + p * 0.04) + ')';
+  up($('s6h'), lt, 0.4, .35, 20);
+  for(let i = 0; i < 3; i++) up($('s6s' + i), lt, 0.6 + i * 0.16, .35, 22);
+  // تُعلَّم الجلسات واحدة بعد أخرى
+  [[0,1.45],[1,1.95]].forEach(([i,at]) => {
+    const q = cl((lt - at) / .3, 0, 1);
+    const b = $('s6b' + i);
+    if(q > 0){ b.classList.add('on'); b.querySelector('svg').style.opacity = q;
+               b.style.transform = 'scale(' + (1 + Math.sin(q * Math.PI) * 0.22) + ')'; }
+    else { b.classList.remove('on'); b.querySelector('svg').style.opacity = 0; b.style.transform = 'scale(1)'; }
+  });
+  $('s6p').style.width = (E(cl((lt - 1.5) / 1.1, 0, 1)) * 66) + '%';
+  const np = E(cl((lt - 1.2) / .6, 0, 1));
+  $('s6n').style.opacity = np;
+  $('s6n').style.transform = 'translateY(' + ((1 - np) * 30) + 'px)';
+  count($('s6n0'), lt, 1.35, 1.0, 185);
+  count($('s6n1'), lt, 1.35, 1.0, 4);
+  count($('s6n2'), lt, 1.35, 1.0, 6);
+}
+function s7(lt){
+  pop($('s7l'), lt, 0.02, .5);
+  up($('s7n'), lt, 0.3, .45, 34);
+  for(let i = 0; i < 3; i++) up($('s7p' + i), lt, 0.75 + i * 0.13, .35, 22);
+  up($('s7c'), lt, 1.45);
+  up($('s7f'), lt, 1.85, .45, 26);
+}
+const FN = { s1, s2, s3, s4, s5, s6, s7 };
+
+function __seek(t){
+  $('bar').style.width = (cl(t / DUR, 0, 1) * 100) + '%';
+  $('sig').style.opacity = t < 20.8 ? 0.55 : 0;      // يختفي عند الختام
+  SC.forEach(([id, a, b]) => {
+    const el = $(id), on = t >= a && t < b;
+    el.style.display = on ? 'flex' : 'none';
+    if(!on) return;
+    const lt = t - a, len = b - a;
+    el.style.opacity = cl(lt / 0.18, 0, 1) * cl((len - lt) / 0.20, 0, 1);
+    FN[id](lt);
+  });
+  return document.documentElement.offsetHeight;      // يفرض إعادة التخطيط قبل الالتقاط
+}
+window.__seek = __seek;
+window.__dur = DUR;
+__seek(0);
+
+/* ?t=12.5 يثبّت لحظة بعينها — للمعاينة والتقاط الأغلفة */
+const Q = new URLSearchParams(location.search);
+if(Q.has('t')) __seek(+Q.get('t'));
+else if(!Q.has('static')){
+  let t0 = null;
+  const loop = ts => { if(t0 === null) t0 = ts;
+    __seek(((ts - t0) / 1000) % DUR); requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>
