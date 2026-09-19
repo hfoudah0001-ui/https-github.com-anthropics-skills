@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# يجمع الصوت بالصورة: موسيقى + تعليق صوتي، ثم يضعهما على الفيديو.
+#   ./mix.sh            يستخدم ffmpeg من النظام
+#   FFMPEG=/path/ffmpeg ./mix.sh
+set -euo pipefail
+cd "$(dirname "$0")"
+FF="${FFMPEG:-ffmpeg}"
+
+python3 sound.py jahiz-ad.wav          # الموسيقى
+python3 voice.py vo-track.wav          # التعليق الصوتي في مواضعه
+
+# الموسيقى تنخفض تلقائيًا تحت الصوت (sidechain) ثم يُحدّ المزيج
+"$FF" -y -hide_banner -loglevel error -i jahiz-ad.wav -i vo-track.wav -filter_complex \
+"[0:a]volume=0.80[mus];\
+ [1:a]volume=1.85,alimiter=limit=0.95,asplit=2[voc1][voc2];\
+ [mus][voc1]sidechaincompress=threshold=0.02:ratio=12:attack=12:release=340[duck];\
+ [duck][voc2]amix=inputs=2:normalize=0[mx];\
+ [mx]alimiter=limit=0.97[aout]" -map "[aout]" -ar 44100 -ac 2 mix.wav
+
+"$FF" -y -hide_banner -loglevel error -i jahiz-ad-silent.mp4 -i mix.wav \
+  -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart jahiz-ad.mp4
+
+# نسخة بالموسيقى وحدها
+"$FF" -y -hide_banner -loglevel error -i jahiz-ad-silent.mp4 -i jahiz-ad.wav \
+  -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart jahiz-ad-music-only.mp4
+
+echo "تم: jahiz-ad.mp4 (صوت + موسيقى) و jahiz-ad-music-only.mp4"

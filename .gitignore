@@ -1,5 +1,8 @@
 ad/jahiz-ad.wav
+ad/vo-track.wav
+ad/mix.wav
+ad/vo/*.pcm
 ad/still_*.jpg
 ad/v_*.jpg
 ad/*sheet.jpg
-ad/wave.png
+ad/*wave.png
