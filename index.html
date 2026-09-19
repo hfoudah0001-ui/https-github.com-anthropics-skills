@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>جاهز — خطة مذاكرة قبل الامتحان</title>
+
+<!-- ⚠️ غيّر REPLACE-WITH-YOUR-DOMAIN إلى عنوان موقعك (هنا وفي وسوم og) -->
+<link rel="canonical" href="https://REPLACE-WITH-YOUR-DOMAIN/">
+<meta name="description" content="أدخل موعد امتحانك ومواضيعك، وجاهز يقرر أين تصرف وقتك — وأي المواضيع تتركها دون أن تفتحها. مؤقت لكل جلسة، استراحات، تذكيرات، وخطة تبقى محفوظة في جهازك.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:url" content="https://REPLACE-WITH-YOUR-DOMAIN/">
+<meta property="og:title" content="جاهز — يقرر لك أي المواضيع تترك">
+<meta property="og:description" content="الوقت الذي بقي لك محدود. جاهز يوزّعه على مواضيعك بالوزن والضعف، ويقول لك صراحةً ما الذي لا يستحق أن تفتحه.">
+<meta property="og:image" content="https://REPLACE-WITH-YOUR-DOMAIN/og-jahiz.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#EAEEF2" id="tc">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="جاهز">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231F6F5C'/%3E%3Cpath d='M18 33l10 10 18-20' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══ الألوان — النهاري هو الأصل، والليلي يعيد تعريف الرموز نفسها ═══ */
+:root{
+  color-scheme:light;
+  --page:#EAEEF2; --card:#FFFFFF; --ink:#16202E; --soft:#53637A; --line:#D3DBE4;
+  --panel:#16202E; --panel-ink:#FFFFFF; --panel-soft:#A7B4C6; --panel-line:#38475C;
+  --marker:#1F6F5C; --marker-lo:#E6F0ED; --on-marker:#FFFFFF;
+  --miss:#B4402F; --miss-bg:#FBEDEA; --miss-line:#EBC6BE;
+  --lamp:#E8B33C; --lamp-lo:#FBF3DF; --lamp-line:#E5D3A5; --lamp-ink:#6B5A2E;
+  --overlay:rgba(22,32,46,.97);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#0F151D; --card:#18212D; --ink:#E7EDF5; --soft:#93A5BB; --line:#2B3849;
+    --panel:#1E293A; --panel-ink:#EDF2F8; --panel-soft:#9FB0C4; --panel-line:#37475C;
+    --marker:#4FB79A; --marker-lo:#15302A; --on-marker:#05221B;
+    --miss:#EE8770; --miss-bg:#2A1917; --miss-line:#4A2B25;
+    --lamp:#E8B33C; --lamp-lo:#2A2415; --lamp-line:#4A3E22; --lamp-ink:#DCC894;
+    --overlay:rgba(6,10,15,.97);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0F151D; --card:#18212D; --ink:#E7EDF5; --soft:#93A5BB; --line:#2B3849;
+  --panel:#1E293A; --panel-ink:#EDF2F8; --panel-soft:#9FB0C4; --panel-line:#37475C;
+  --marker:#4FB79A; --marker-lo:#15302A; --on-marker:#05221B;
+  --miss:#EE8770; --miss-bg:#2A1917; --miss-line:#4A2B25;
+  --lamp:#E8B33C; --lamp-lo:#2A2415; --lamp-line:#4A3E22; --lamp-ink:#DCC894;
+  --overlay:rgba(6,10,15,.97);
+}
+
+*{box-sizing:border-box}
+html{direction:rtl}
+body{margin:0;background:var(--page);color:var(--ink);line-height:1.6;
+  padding-block:24px calc(70px + env(safe-area-inset-bottom,0px));padding-inline:18px;
+  font-family:'IBM Plex Sans Arabic','Segoe UI',Tahoma,system-ui,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto}
+.brand{font-size:13px;color:var(--soft);margin:0 0 18px;display:flex;align-items:center;gap:10px}
+.brand .pro{background:var(--panel);color:var(--panel-ink);border-radius:20px;padding:2px 10px;font-size:11px;font-weight:600}
+.brand .sp{flex:1}
+.mini{font:inherit;font-size:12px;padding:5px 11px;border-radius:20px;border:1px solid var(--line);
+  background:var(--card);color:var(--soft);cursor:pointer;white-space:nowrap}
+.mini:hover{border-color:var(--ink);color:var(--ink)}
+h1{font-size:40px;font-weight:700;line-height:1.1;margin:0 0 8px;letter-spacing:-.01em;text-wrap:balance}
+.sub{font-size:15px;color:var(--soft);max-width:52ch;margin:0 0 24px;line-height:1.75}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-top:16px}
+.lbl{font-size:12px;color:var(--soft);margin:0 0 8px;letter-spacing:.02em}
+.body{font-size:16px;line-height:1.95;margin:0}
+label{display:block;font-size:14px;margin:16px 0 6px}
+input,select,textarea{font:inherit;font-size:15px;padding:11px 12px;border-radius:9px;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);outline:0;width:100%}
+textarea{line-height:1.9;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+:focus-visible{outline:2px solid var(--lamp);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 118px 118px 34px;gap:8px;align-items:center;margin-top:8px}
+.row .x{border:0;background:transparent;color:var(--soft);font-size:20px;cursor:pointer;padding:0;line-height:1}
+.row .x:hover{color:var(--miss)}
+.heads{display:grid;grid-template-columns:1fr 118px 118px 34px;gap:8px;font-size:12px;color:var(--soft);margin-top:18px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button.go{font:inherit;font-size:16px;font-weight:600;padding:14px 24px;border-radius:10px;border:0;
+  background:var(--marker);color:var(--on-marker);cursor:pointer;margin-top:22px;width:100%}
+button.ghost{font:inherit;font-size:14px;padding:9px 16px;border-radius:9px;border:1px solid var(--line);
+  background:transparent;color:var(--ink);cursor:pointer;margin-top:10px}
+button.ghost:hover{border-color:var(--ink)}
+.btnrow{display:flex;gap:9px;flex-wrap:wrap}
+.btnrow .ghost{flex:1;min-width:140px}
+details.bulk{margin-top:16px;border:1px dashed var(--line);border-radius:10px;padding:12px 14px}
+details.bulk summary{cursor:pointer;font-size:14px;color:var(--soft)}
+details.bulk[open] summary{color:var(--ink);margin-bottom:8px}
+details.bulk code{font-family:'IBM Plex Mono',monospace;font-size:12px;background:var(--marker-lo);
+  color:var(--marker);padding:1px 5px;border-radius:5px}
+
+/* ═══ الخطة ═══ */
+.clock{background:var(--panel);color:var(--panel-ink);border-radius:14px;padding:20px;margin-top:16px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.clocknum{font-family:'IBM Plex Mono',monospace;font-size:30px;font-variant-numeric:tabular-nums}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:9px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.stat b{display:block;font-family:'IBM Plex Mono',monospace;font-size:21px;font-variant-numeric:tabular-nums;line-height:1.3}
+.stat span{font-size:12px;color:var(--soft)}
+.prog{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:9px}
+.prog .top{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}
+.prog b{font-family:'IBM Plex Mono',monospace;font-size:20px;font-variant-numeric:tabular-nums}
+.track{height:7px;background:var(--line);border-radius:4px;margin-top:11px;overflow:hidden}
+.track i{display:block;height:100%;background:var(--marker);transition:width .3s}
+.drop{background:var(--miss-bg);border:1px solid var(--miss-line);border-radius:12px;padding:18px;margin-top:16px}
+.dropname{color:var(--miss);font-weight:700;margin:0 0 8px;font-size:15px}
+.day{margin-top:26px}
+.dayhead{font-size:18px;font-weight:700;padding-bottom:8px;border-bottom:2px solid var(--ink);
+  display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0}
+.dayhead .small{font-size:13px;font-weight:400;color:var(--soft);font-family:'IBM Plex Mono',monospace;white-space:nowrap}
+.dayhead .tag{font-size:11px;font-weight:600;color:var(--miss);border:1px solid var(--miss-line);
+  background:var(--miss-bg);border-radius:20px;padding:1px 8px}
+.blk{display:flex;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.blk .chk{width:19px;height:19px;margin-top:3px;flex:0 0 auto;accent-color:var(--marker);cursor:pointer}
+.blk.done .t{opacity:.42;text-decoration:line-through}
+.blk .t{flex:1;min-width:0}
+.bt{font-size:16px;font-weight:600;margin:0;overflow-wrap:anywhere}
+.bm{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--marker);margin:0 0 4px}
+.ba{font-size:14px;color:var(--soft);margin:4px 0 0;line-height:1.8}
+.startbtn{font:inherit;font-size:13px;font-weight:600;padding:7px 13px;border-radius:8px;
+  border:1px solid var(--marker);background:var(--marker-lo);color:var(--marker);cursor:pointer;
+  flex:0 0 auto;margin-top:2px;white-space:nowrap}
+.startbtn:hover{background:var(--marker);color:var(--on-marker)}
+.now{width:100%;font:inherit;font-size:16px;font-weight:600;padding:14px 20px;border-radius:12px;border:0;
+  background:var(--marker);color:var(--on-marker);cursor:pointer;margin-top:9px;
+  display:flex;justify-content:center;gap:10px;align-items:baseline;flex-wrap:wrap}
+.now .sm{font-size:13px;font-weight:400;opacity:.85}
+.final{border-inline-start:3px solid var(--lamp);padding-inline-start:14px;margin-top:16px}
+ol{padding-inline-start:20px;margin:0}
+ol li{margin-top:14px;font-size:15px;line-height:1.9}
+ol li b{display:block;font-size:16px}
+.note{font-size:13px;color:var(--soft);margin-top:22px;line-height:1.8}
+.note b{color:var(--ink)}
+
+/* ═══ دفتر الأخطاء ═══ */
+.noteadd{display:flex;gap:8px;margin-top:10px}
+.noteadd input{flex:1}
+.noteadd button{font:inherit;font-size:14px;font-weight:600;padding:0 16px;border-radius:9px;border:0;
+  background:var(--marker);color:var(--on-marker);cursor:pointer;white-space:nowrap}
+.nlist{list-style:none;margin:12px 0 0;padding:0}
+.nlist li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.8}
+.nlist li span{flex:1;overflow-wrap:anywhere}
+.nlist li button{border:0;background:transparent;color:var(--soft);font-size:17px;cursor:pointer;padding:0 2px;line-height:1}
+.nlist li button:hover{color:var(--miss)}
+
+/* ═══ المؤقت ═══ */
+.timer{position:fixed;inset:0;background:var(--overlay);color:#fff;z-index:50;display:none;
+  flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center}
+.timer:not([hidden]){display:flex}
+.timer .task{font-size:19px;font-weight:600;max-width:22ch;margin:0}
+.timer .act{font-size:14px;color:var(--panel-soft);margin:10px 0 0;max-width:32ch;line-height:1.8}
+.timer .num{font-family:'IBM Plex Mono',monospace;font-size:76px;font-weight:500;margin:0 0 6px;
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.timer .ringwrap{position:relative;width:200px;height:200px;margin:18px 0 10px;
+  display:flex;align-items:center;justify-content:center}
+.timer .ring{position:absolute;inset:0;width:200px;height:200px}
+.timer .state{font-size:13px;color:var(--panel-soft);margin:0}
+.timer .btns{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+.timer button{font:inherit;font-size:15px;font-weight:600;padding:13px 22px;border-radius:10px;border:0;cursor:pointer}
+.timer .pri{background:var(--marker);color:var(--on-marker)}
+.timer .sec{background:transparent;color:#DCE4EE;border:1px solid var(--panel-line)}
+.timer .hint{font-size:12px;color:var(--panel-soft);margin:16px 0 0}
+
+/* ═══ برو + المحفوظات ═══ */
+.pro-box{background:var(--lamp-lo);border:1px solid var(--lamp-line);border-radius:12px;padding:18px;margin-top:16px}
+.pro-box h3{margin:0 0 6px;font-size:16px}
+.pro-box p{margin:0;font-size:14px;color:var(--lamp-ink);line-height:1.85}
+.pro-box ul{margin:10px 0 0;padding-inline-start:20px;font-size:14px;color:var(--lamp-ink);line-height:1.9}
+.saved{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  margin-top:10px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.saved:hover{border-color:var(--ink)}
+.saved .nm{flex:1;font-weight:600;overflow-wrap:anywhere}
+.saved .when{font-size:13px;color:var(--soft);font-family:'IBM Plex Mono',monospace;white-space:nowrap}
+.saved .del{border:0;background:transparent;color:var(--soft);font-size:18px;cursor:pointer;padding:0 4px;line-height:1}
+.saved .del:hover{color:var(--miss)}
+.settings summary{cursor:pointer;font-size:14px;color:var(--soft);list-style:none}
+.settings summary::-webkit-details-marker{display:none}
+.settings summary::before{content:"⚙︎ ";}
+.settings[open] summary{color:var(--ink);margin-bottom:6px}
+.toast{position:fixed;inset-block-end:calc(22px + env(safe-area-inset-bottom,0px));inset-inline:0;
+  margin-inline:auto;width:max-content;max-width:88vw;background:var(--panel);color:var(--panel-ink);
+  padding:13px 20px;border-radius:10px;font-size:14px;z-index:60;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.on{opacity:1}
+.sheet{position:fixed;inset:0;background:var(--overlay);z-index:55;display:none;
+  flex-direction:column;justify-content:center;padding:22px}
+.sheet:not([hidden]){display:flex}
+.sheet .inner{background:var(--card);border-radius:14px;padding:20px;max-width:620px;margin:0 auto;width:100%}
+.sheet textarea{margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;height:190px}
+
+@media(max-width:560px){
+  h1{font-size:31px}
+  .row,.heads{grid-template-columns:1fr 92px 92px 30px}
+  .two{grid-template-columns:1fr}
+  .timer .num{font-size:60px}
+  .stat b{font-size:19px}
+}
+@media print{
+  :root{--page:#fff;--card:#fff;--ink:#000;--soft:#444;--line:#bbb;--panel:#fff;--panel-ink:#000}
+  body{background:#fff;padding:0}
+  .noprint,.timer,.toast,.sheet{display:none!important}
+  .card{border:0;padding:0}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="brand">
+    <span>Foudah Labs</span>
+    <span class="pro" id="proBadge" hidden>PRO</span>
+    <span class="sp"></span>
+    <button class="mini noprint" id="themeBtn" type="button">🌓 تلقائي</button>
+  </p>
+  <h1>جاهز</h1>
+  <p class="sub">الوقت الذي بقي لك محدود. هذه الأداة تقرر أين تصرفه — وأي المواضيع تتركها دون أن تفتحها.</p>
+
+  <noscript><div class="card"><p class="body">هذه الأداة تحتاج جافاسكربت لتعمل. فعّلها من إعدادات المتصفح.</p></div></noscript>
+
+  <div id="saved"></div>
+
+  <div id="setup">
+    <div class="card">
+      <label for="exam">موعد الامتحان</label>
+      <input type="datetime-local" id="exam">
+      <div class="two">
+        <div><label for="hours">كم ساعة تذاكر فعليًا في اليوم؟</label>
+          <input type="number" id="hours" value="5" min="1" max="16" step="0.5" inputmode="decimal"></div>
+        <div><label for="name">اسم المادة</label>
+          <input type="text" id="name" placeholder="ميكانيكا الموائع" autocomplete="off"></div>
+      </div>
+
+      <div class="heads" aria-hidden="true"><span>الموضوع</span><span>وزنه في الامتحان</span><span>مستواك فيه</span><span></span></div>
+      <div id="rows"></div>
+      <button class="ghost" id="add" type="button">+ أضف موضوعًا</button>
+
+      <details class="bulk noprint">
+        <summary>أو ألصق مواضيعك دفعة واحدة</summary>
+        <p class="note" style="margin-top:0">كل موضوع في سطر. ولو أردت تحديد الوزن والمستوى في السطر نفسه:
+          <code>اسم الموضوع | 5 | 2</code> — الأول الوزن (١–٥) والثاني مستواك (١–٥).</p>
+        <label for="bulk" style="font-size:13px">قائمة المواضيع</label>
+        <textarea id="bulk" rows="5" placeholder="الاتزان&#10;القص والانحناء | 5 | 2&#10;الالتواء | 3 | 4"></textarea>
+        <button class="ghost" id="bulkAdd" type="button">أضف الكل</button>
+      </details>
+
+      <p class="note" id="limitNote" hidden></p>
+      <button class="go" id="make" type="button">اصنع الخطة</button>
+    </div>
+
+    <div class="card">
+      <p class="lbl">الطريقة — ست خطوات</p>
+      <ol>
+        <li><b>اكتب كل المواضيع أولًا</b>ما لا تسمّيه لا تستطيع تخطيطه. القائمة الكاملة تكشف أن الكمية أقل مما تخيلت.</li>
+        <li><b>رتّب بالوزن لا بالترتيب</b>الفصل الأول ليس الأهم، بل أكثره ظهورًا في الامتحان وأضعفك فيه.</li>
+        <li><b>اترك ما لا يستحق</b>حين يضيق الوقت، ترك موضوع صغير عمدًا قرار ذكي. توزيع الوقت بالتساوي هو الخسارة.</li>
+        <li><b>أغلق الكتاب واسترجع</b>إعادة القراءة تعطي شعورًا بالفهم بلا فهم. اكتب ما تذكره على ورقة بيضاء، والفجوة هي درسك.</li>
+        <li><b>حل بمؤقت</b>قراءة الحل ليست حلًا. حل بلا نظر إلى الإجابة وبوقت محدد، فهذا وحده يشبه الامتحان.</li>
+        <li><b>وزّع ولا تكدّس</b>ثلاث جلسات قصيرة على ثلاثة أيام تبقى في ذاكرتك أكثر من ليلة واحدة طويلة.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div id="plan"></div>
+
+  <details class="card settings noprint">
+    <summary>الإعدادات والنسخ الاحتياطي</summary>
+    <div class="two">
+      <div>
+        <label for="startHour">أول جلسة في اليوم تبدأ الساعة</label>
+        <input type="number" id="startHour" min="0" max="23" step="1" value="16" inputmode="numeric">
+      </div>
+      <div>
+        <label for="soundSel">صوت نهاية الجلسة</label>
+        <select id="soundSel">
+          <option value="1">مُفعّل</option>
+          <option value="0">صامت</option>
+        </select>
+      </div>
+    </div>
+    <p class="note">ساعة البداية تُستخدم عند تصدير الجلسات إلى التقويم.</p>
+    <div class="btnrow">
+      <button class="ghost" id="expJson" type="button">احفظ نسخة من بياناتي</button>
+      <button class="ghost" id="impBtn" type="button">استعد نسخة</button>
+      <button class="ghost" id="wipe" type="button">امسح كل شيء</button>
+    </div>
+    <input type="file" id="impFile" accept="application/json,.json" hidden>
+  </details>
+
+  <p class="note" id="foot">خطتك تُحفَظ في جهازك وحده — لا حساب ولا خادم. النسخة الاحتياطية من الإعدادات تنقلها إلى جهاز آخر.</p>
+</div>
+
+<!-- المؤقت: الطريقة تقول «حل بمؤقت»، فالأداة توفّره -->
+<div class="timer" id="timer" hidden role="dialog" aria-modal="true" aria-label="جلسة مذاكرة">
+  <p class="task" id="tTask"></p>
+  <p class="act" id="tAct"></p>
+  <div class="ringwrap">
+    <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="52" fill="none" stroke="var(--panel-line)" stroke-width="9"/>
+      <circle id="tRing" cx="60" cy="60" r="52" fill="none" stroke="var(--marker)" stroke-width="9"
+        stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+    </svg>
+    <p class="num" id="tNum" role="timer" aria-live="off">00:00</p>
+  </div>
+  <p class="state" id="tState"></p>
+  <div class="btns" id="tBtns"></div>
+  <p class="hint noprint">مسافة: إيقاف مؤقت · Esc: خروج</p>
+</div>
+
+<!-- بديل التنزيل حين يمنعه المتصفح (داخل إطار أو على الجوال) -->
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="نسخ الملف">
+  <div class="inner">
+    <p class="lbl" id="sheetTitle">انسخ النص واحفظه في ملف</p>
+    <p class="note" id="sheetNote" style="margin-top:0"></p>
+    <textarea id="sheetText" readonly></textarea>
+    <div class="btnrow">
+      <button class="ghost" id="sheetCopy" type="button">انسخ</button>
+      <button class="ghost" id="sheetClose" type="button">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   جاهز — Foudah Labs
+   المنطق الأساسي (الوزن × الضعف، وإسقاط ما لا يستحق) كما هو،
+   وفوقه: حفظ الخطط وتعديلها، مؤقت بإيقاف واستراحة، تذكيرات،
+   تصدير إلى التقويم، دفتر أخطاء، إحصاء يومي، ووضع ليلي.
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+
+/* ── مصغّرات ── */
+const $ = id => document.getElementById(id);
+const ESC = {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ESC[c]);
+const pad = n => String(n).padStart(2,'0');
+const clamp = (n,a,b) => Math.min(b, Math.max(a, n));
+const dayKey = (d = new Date()) => d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const midnight = d => { const x = new Date(d); x.setHours(0,0,0,0); return x; };
+const scrollTo_ = el => { try{ el && el.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){} };
+const EMBED = (()=>{ try{ return window.self !== window.top; }catch(e){ return true; } })();
+
+/* العدد والمعدود: ٣–١٠ جمع، وما فوقها مفرد. تفصيلة صغيرة لكنها فرق بين
+   أداة مكتوبة بالعربية وأداة مترجمة إليها. */
+const HOUR = ['ساعة واحدة','ساعتان','ساعات','ساعة'];
+const MIN  = ['دقيقة واحدة','دقيقتان','دقائق','دقيقة'];
+const DAY  = ['يوم واحد','يومان','أيام','يومًا'];
+const SESS = ['جلسة واحدة','جلستان','جلسات','جلسة'];
+const TOPC = ['موضوع واحد','موضوعان','مواضيع','موضوعًا'];
+const PLAN = ['خطة واحدة','خطتان','خطط','خطة'];
+function arN(n, f){
+  n = Math.round(n);
+  if(n === 1) return f[0];
+  if(n === 2) return f[1];
+  return n + ' ' + (n >= 3 && n <= 10 ? f[2] : f[3]);
+}
+function dur(mins){
+  mins = Math.round(mins);
+  const h = Math.floor(mins / 60), m = mins % 60;
+  if(h && m) return arN(h, HOUR) + ' و' + arN(m, MIN);
+  if(h) return arN(h, HOUR);
+  return arN(m, MIN);
+}
+
+/* ── حدود النسخة المجانية — غيّرها من هنا وحدها ── */
+const FREE_TOPICS = 6;
+const FREE_PLANS  = 1;
+/* ── ثوابت الخوارزمية ── */
+const MIN_PER_TOPIC = 25;   // موضوع لا ينال هذا القدر من الدقائق لا يستحق فتحه
+const BREAK_MIN     = 5;    // الاستراحة بين الجلسات
+const RING          = 326.7;
+
+const W = [["5","أساسي — يظهر دائمًا"],["4","مهم"],["3","متوسط"],["2","قليل"],["1","نادر"]];
+const C = [["1","لا أفهمه إطلاقًا"],["2","ضعيف"],["3","متوسط"],["4","جيد"],["5","متمكن"]];
+
+/* ── التخزين المحلي (يفشل بهدوء في وضع التصفح الخاص) ── */
+const DB = {
+  get(k,d){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); return true; }
+            catch(e){ toast('تعذّر الحفظ — مساحة المتصفح ممتلئة أو محجوبة'); return false; } },
+  del(k){ try{ localStorage.removeItem(k); }catch(e){} }
+};
+
+let PLANS = DB.get('jahiz_plans', []);
+let LOG   = DB.get('jahiz_log', {});                     // {'2026-09-19':{m:120,s:3}}
+let PRO   = DB.get('jahiz_pro', false);
+let PREFS = Object.assign({theme:'auto', sound:true, startHour:16}, DB.get('jahiz_prefs', {}));
+let CUR   = null;   // الخطة المفتوحة
+let EDIT  = null;   // معرّف خطة قيد التعديل
+let CLOCK = null;   // مؤقّت تحديث العدّاد
+
+const rows = $('rows');
+
+function toast(msg){
+  const t = $('toast'); t.textContent = msg; t.classList.add('on');
+  clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('on'), 2600);
+}
+
+/* ═══ المظهر ═══ */
+function applyTheme(){
+  const t = PREFS.theme || 'auto';
+  const root = document.documentElement;
+  if(t === 'auto') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', t);
+  let dark = t === 'dark';
+  if(t === 'auto'){ try{ dark = matchMedia('(prefers-color-scheme: dark)').matches; }catch(e){} }
+  $('tc').setAttribute('content', dark ? '#0F151D' : '#EAEEF2');
+  $('themeBtn').textContent = t === 'auto' ? '🌓 تلقائي' : t === 'dark' ? '🌙 ليلي' : '☀️ نهاري';
+}
+$('themeBtn').onclick = () => {
+  PREFS.theme = PREFS.theme === 'auto' ? 'light' : PREFS.theme === 'light' ? 'dark' : 'auto';
+  DB.set('jahiz_prefs', PREFS); applyTheme();
+};
+
+/* ═══ إدخال المواضيع ═══ */
+function addRow(n,w,c){
+  if(!PRO && rows.children.length >= FREE_TOPICS){
+    toast('النسخة المجانية تسمح بـ ' + arN(FREE_TOPICS, TOPC)); return false;
+  }
+  const d = document.createElement('div');
+  d.className = 'row';
+  d.innerHTML =
+    '<input type="text" placeholder="اسم الموضوع" aria-label="اسم الموضوع" autocomplete="off">' +
+    '<select aria-label="وزن الموضوع في الامتحان">' +
+      W.map(o => '<option value="'+o[0]+'">'+o[1]+'</option>').join('') + '</select>' +
+    '<select aria-label="مستواك في الموضوع">' +
+      C.map(o => '<option value="'+o[0]+'">'+o[1]+'</option>').join('') + '</select>' +
+    '<button class="x" type="button" aria-label="احذف هذا الموضوع">×</button>';
+  const f = d.querySelectorAll('input,select');
+  f[0].value = n || '';                    // بالخاصية لا بالنص — لا مجال للحقن
+  f[1].value = String(w || 3);
+  f[2].value = String(c || 3);
+  f[0].oninput = f[1].onchange = f[2].onchange = saveDraft;
+  d.querySelector('.x').onclick = () => { d.remove(); syncLimit(); saveDraft(); };
+  rows.appendChild(d); syncLimit();
+  return true;
+}
+function syncLimit(){
+  const n = rows.children.length, note = $('limitNote');
+  if(!PRO && n >= FREE_TOPICS){
+    note.hidden = false;
+    note.innerHTML = 'وصلت إلى حد النسخة المجانية (' + arN(FREE_TOPICS, TOPC) + '). <b>جاهز برو</b> يرفع الحد ويحفظ أكثر من مادة.';
+  } else note.hidden = true;
+}
+function readRows(){
+  return [...rows.children].map(r => {
+    const f = r.querySelectorAll('input,select');
+    return { name: f[0].value.trim(), w: +f[1].value, c: +f[2].value };
+  }).filter(t => t.name);
+}
+function fillRows(list){
+  rows.innerHTML = '';
+  (list && list.length ? list : [{},{},{}]).forEach(t => addRow(t.name, t.w, t.c));
+  syncLimit();
+}
+
+$('add').onclick = () => addRow();
+$('bulkAdd').onclick = () => {
+  const lines = $('bulk').value.split('\n').map(s => s.trim()).filter(Boolean);
+  if(!lines.length){ toast('الصندوق فارغ'); return; }
+  // أفرغ الصفوف الفارغة أولًا حتى لا تضيع من حصّة المجاني
+  [...rows.children].forEach(r => { if(!r.querySelector('input').value.trim()) r.remove(); });
+  let added = 0;
+  for(const line of lines){
+    const p = line.split('|').map(s => s.trim());
+    if(!p[0]) continue;
+    if(!addRow(p[0], clamp(+p[1] || 3, 1, 5), clamp(+p[2] || 3, 1, 5))) break;
+    added++;
+  }
+  if(!rows.children.length) addRow();
+  $('bulk').value = '';
+  saveDraft();
+  toast('أُضيف ' + arN(added, TOPC));
+};
+
+/* ═══ مسودّة الإدخال — لا يضيع ما كتبته لو أُغلقت الصفحة ═══ */
+let draftT = null;
+function saveDraft(){
+  clearTimeout(draftT);
+  draftT = setTimeout(() => {
+    DB.set('jahiz_draft', { name:$('name').value, exam:$('exam').value, hours:$('hours').value, topics:readRows() });
+  }, 400);
+}
+['name','exam','hours'].forEach(id => { $(id).oninput = saveDraft; });
+
+/* ═══ نصائح الجلسة حسب مستواك ═══ */
+function actions(conf, i){
+  const k = Math.min(i, 2);
+  if(conf <= 2) return ["افهم الفكرة من مصدر واحد فقط، ثم مثال محلول واحد",
+                        "أغلق كل شيء واكتب على ورقة بيضاء ما فهمته",
+                        "حل مسألتين سهلتين بلا نظر إلى الحل"][k];
+  if(conf === 3) return ["حل ثلاث مسائل بمؤقت، ثم صحّحها",
+                         "اكتب بجانب كل خطأ سببه بجملة واحدة",
+                         "أعد حل المسألة التي أخطأت فيها من الصفر"][k];
+  return ["اكتب قوانين الموضوع من الذاكرة في خمس دقائق",
+          "حل مسألة واحدة صعبة فقط",
+          "راجع خطأك السابق ثم انتقل"][k];
+}
+
+/* ═══ بناء الخطة ═══
+   الأولوية = الوزن × (٦ − مستواك): الثقيل الذي تضعف فيه يأخذ أكبر نصيب.
+   ثم تُسقَط المواضيع التي لا يبقى لها وقت يستحق. */
+function buildPlan(o){
+  const exam = new Date(o.exam);
+  const hrs  = (exam - new Date()) / 36e5;
+  const perDay = clamp(o.perDay || 4, 1, 16);
+  const days = Math.max(1, Math.ceil(hrs / 24));
+
+  // الطاقة الحقيقية: أيام كاملة + ما بقي من اليوم الأخير، ولا تتجاوز ٥٥٪ من الوقت المتبقي
+  const full = Math.floor(hrs / 24), rest = hrs - full * 24;
+  const capacity = full * perDay + Math.min(perDay, rest * 0.55);
+  const total = Math.round(Math.min(capacity, hrs * 0.55) * 60);
+
+  const topics = o.topics.map(t => ({ ...t, p: t.w * (6 - t.c) }));
+  topics.sort((a,b) => b.p - a.p);
+
+  const dropped = [];
+  while(topics.length > 1 && total / topics.length < MIN_PER_TOPIC) dropped.push(topics.pop());
+
+  const sum = topics.reduce((s,t) => s + t.p, 0) || 1;
+  topics.forEach(t => {
+    t.min = Math.max(20, Math.round(total * t.p / sum / 5) * 5);
+    t.n   = clamp(Math.round(t.min / 40), 1, Math.min(days * 2, 10));
+    t.blk = clamp(Math.round(t.min / t.n / 5) * 5, 15, 60);   // لا جلسة أطول من ساعة
+  });
+
+  // تبادل الأدوار: كل المواضيع مرة أولى، ثم المرة الثانية… فيبقى التوزيع لا التكديس
+  const maxRep = topics.reduce((m,t) => Math.max(m, t.n), 1);
+  const queue = [];
+  for(let i = 0; i < maxRep; i++)
+    topics.forEach(t => { if(i < t.n) queue.push({ name:t.name, c:t.c, blk:t.blk, rep:i, done:false }); });
+
+  // توزيع على الأيام بالدقائق لا بالعدد، فلا يثقل يوم ويخف آخر
+  const target = Math.max(1, total / days);
+  const dayList = Array.from({length: days}, () => []);
+  let d = 0, acc = 0;
+  queue.forEach(b => {
+    if(acc + b.blk > target && d < days - 1 && dayList[d].length){ d++; acc = 0; }
+    dayList[d].push(b); acc += b.blk;
+  });
+
+  return {
+    name: o.name, exam: o.exam, perDay, created: Date.now(),
+    topics: o.topics.map(t => ({ name:t.name, w:t.w, c:t.c })),
+    days: dayList,
+    dropped: dropped.map(t => t.name),
+    top: topics.slice(0, 3).map(t => t.name),
+    tight: total < topics.length * 45,
+    notes: []
+  };
+}
+
+/* ينقل ما أنجزته إلى الخطة المعاد بناؤها بعد التعديل */
+function carryOver(old, neu){
+  const done = {};
+  old.days.flat().forEach(b => { if(b.done) done[b.name] = (done[b.name] || 0) + 1; });
+  neu.days.flat().forEach(b => { if(done[b.name] > 0){ b.done = true; done[b.name]--; } });
+  neu.created = old.created;
+  neu.notes = old.notes || [];
+  return neu;
+}
+
+/* ═══ الحفظ والاسترجاع ═══ */
+function savePlan(p){
+  const i = PLANS.findIndex(x => x.created === p.created);
+  if(i >= 0) PLANS[i] = p; else PLANS.unshift(p);
+  if(!PRO) PLANS = PLANS.slice(0, FREE_PLANS);
+  DB.set('jahiz_plans', PLANS);
+}
+function renderSaved(){
+  const el = $('saved');
+  if(!PLANS.length || CUR){ el.innerHTML = ''; return; }
+  el.innerHTML = '<p class="lbl" style="margin-top:6px">خططك المحفوظة</p>' + PLANS.map(p => {
+    const left  = (new Date(p.exam) - new Date()) / 36e5;
+    const flat  = p.days.flat();
+    const done  = flat.filter(b => b.done).length;
+    const when  = left > 0 ? (left < 24 ? Math.round(left) + ' س' : Math.floor(left / 24) + ' ي') : 'انتهى';
+    return '<div class="saved" data-id="' + p.created + '" tabindex="0" role="button">' +
+      '<span class="nm">' + esc(p.name || 'الامتحان') + '</span>' +
+      '<span class="when">' + done + '/' + flat.length + ' · ' + when + '</span>' +
+      '<button class="del" type="button" data-del="' + p.created + '" aria-label="احذف الخطة">×</button></div>';
+  }).join('');
+  el.querySelectorAll('.saved').forEach(s => {
+    const open = () => { CUR = PLANS.find(p => p.created === +s.dataset.id); if(CUR) showPlan(); };
+    s.onclick = e => { if(!e.target.dataset.del) open(); };
+    s.onkeydown = e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); } };
+  });
+  el.querySelectorAll('[data-del]').forEach(b => b.onclick = e => {
+    e.stopPropagation();
+    if(!confirm('حذف هذه الخطة نهائيًا؟')) return;
+    PLANS = PLANS.filter(p => p.created !== +b.dataset.del);
+    DB.set('jahiz_plans', PLANS); renderSaved();
+  });
+}
+
+/* ═══ الإحصاء اليومي ═══ */
+function logMinutes(m, sessions){
+  m = Math.round(m);
+  if(m < 1 && !sessions) return;
+  const k = dayKey(), e = LOG[k] || { m:0, s:0 };
+  e.m += Math.max(0, m); e.s += (sessions || 0);
+  LOG[k] = e; DB.set('jahiz_log', LOG);
+}
+function streak(){
+  let n = 0, d = new Date();
+  if(!(LOG[dayKey(d)] || {}).m) d.setDate(d.getDate() - 1);
+  while((LOG[dayKey(d)] || {}).m > 0){ n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+
+/* ═══ عرض الخطة ═══ */
+function hoursLeft(){ return (new Date(CUR.exam) - new Date()) / 36e5; }
+function fmtLeft(h){
+  if(h <= 0) return 'انتهى';
+  if(h < 24) return dur(h * 60);
+  const d = Math.floor(h / 24), r = Math.round(h % 24);
+  return arN(d, DAY) + (r ? ' و' + arN(r, HOUR) : '');
+}
+function nextUndone(){
+  for(let d = 0; d < CUR.days.length; d++)
+    for(let j = 0; j < CUR.days[d].length; j++)
+      if(!CUR.days[d][j].done) return [d, j];
+  return null;
+}
+
+function showPlan(keepScroll){
+  const p = CUR, y = window.scrollY;
+  const flat = p.days.flat();
+  const done = flat.filter(b => b.done).length;
+  const minsLeft = flat.filter(b => !b.done).reduce((s,b) => s + b.blk, 0);
+  const today = LOG[dayKey()] || { m:0, s:0 };
+  const nx = nextUndone();
+  const examIdx = Math.round((midnight(new Date(p.exam)) - midnight(new Date())) / 864e5);
+
+  let h = '<div class="clock"><span>' + esc(p.name || 'الامتحان') + ' — بقي</span>' +
+          '<span class="clocknum" id="clockNum">' + fmtLeft(hoursLeft()) + '</span></div>' +
+
+    '<div class="stats">' +
+      '<div class="stat"><b>' + today.m + '</b><span>دقيقة اليوم</span></div>' +
+      '<div class="stat"><b>' + today.s + '</b><span>جلسة اليوم</span></div>' +
+      '<div class="stat"><b>' + streak() + '</b><span>يوم متتابع</span></div>' +
+    '</div>' +
+
+    '<div class="prog">' +
+      '<div class="top"><span>أنجزت</span><b>' + done + ' / ' + flat.length + '</b></div>' +
+      '<div class="track"><i style="width:' + (flat.length ? done / flat.length * 100 : 0) + '%"></i></div>' +
+      '<p class="note" style="margin-top:10px">' + (minsLeft
+        ? 'بقي أمامك ' + dur(minsLeft) + ' من الجلسات.'
+        : 'لم تبقَ جلسة واحدة — انتهت الخطة.') + '</p>' +
+    '</div>';
+
+  if(nx){
+    const b = p.days[nx[0]][nx[1]];
+    h += '<button class="now noprint" id="startNow" type="button">' +
+         '<span>ابدأ الآن: ' + esc(b.name) + '</span><span class="sm">' + b.blk + ' دقيقة</span></button>';
+  } else {
+    h += '<div class="card"><p class="body">أنهيت كل جلسات الخطة. راجع دفتر أخطائك، ثم نم مبكرًا — النوم جزء من المذاكرة لا مكافأة عليها.</p></div>';
+  }
+
+  h += '<div class="card"><p class="body">' + (p.tight
+      ? 'الوقت ضيق. الخطة تحت مبنية على النجاة لا على الإتقان: ركّز على ما يتكرر في الامتحان، ولا تفتح موضوعًا جديدًا في الساعات الأخيرة.'
+      : 'الوقت كافٍ إن التزمت. أثقل المواضيع موزّعة على الأيام كلها عمدًا — التوزيع يثبّت أكثر من التكديس.') + '</p></div>';
+
+  if(p.dropped.length)
+    h += '<div class="drop"><p class="dropname">لا تفتح هذه المواضيع</p>' +
+         '<p class="body">' + esc(p.dropped.join('، ')) + ' — وزنها في الامتحان أقل من كلفتها بوقتك. ' +
+         'تركها قرار مقصود، وليس تقصيرًا. لا تعد إليها إلا إن انتهيت من كل ما فوق.</p></div>';
+
+  p.days.forEach((d, i) => {
+    if(!d.length) return;
+    const dt = new Date(); dt.setDate(dt.getDate() + i);
+    const mins = d.filter(b => !b.done).reduce((s,b) => s + b.blk, 0);
+    let title;
+    try{ title = i === 0 ? 'اليوم' : i === 1 ? 'غدًا' : dt.toLocaleDateString('ar-EG', {weekday:'long'}); }
+    catch(e){ title = 'اليوم ' + (i + 1); }
+    let date = '';
+    try{ date = dt.toLocaleDateString('ar-EG', {day:'numeric', month:'long'}); }catch(e){}
+
+    h += '<div class="day"><p class="dayhead"><span>' + title +
+         (i === examIdx ? ' <span class="tag">الامتحان</span>' : '') + '</span>' +
+         '<span class="small">' + date + ' · ' + mins + ' د</span></p>';
+    d.forEach((b, j) => {
+      h += '<div class="blk' + (b.done ? ' done' : '') + '">' +
+        '<input type="checkbox" class="chk" data-d="' + i + '" data-b="' + j + '"' + (b.done ? ' checked' : '') +
+          ' aria-label="أنجزت جلسة ' + esc(b.name) + '">' +
+        '<span class="t"><p class="bm">' + arN(b.blk, MIN) + '</p><p class="bt">' + esc(b.name) + '</p>' +
+        '<p class="ba">' + esc(actions(b.c, b.rep)) + '</p></span>' +
+        (b.done ? '' : '<button class="startbtn noprint" type="button" data-start="' + i + '-' + j + '">ابدأ</button>') +
+        '</div>';
+    });
+    h += '</div>';
+  });
+
+  /* دفتر الأخطاء — الخطوة الرابعة من الطريقة، مكتوبة لا محفوظة في الرأس */
+  h += '<div class="card"><p class="lbl">دفتر الأخطاء</p>' +
+    '<p class="note" style="margin-top:0">بعد كل حل خاطئ، اكتب سببه بجملة واحدة. هذه القائمة هي أول ما تراجعه قبل الامتحان.</p>' +
+    '<div class="noteadd noprint"><input type="text" id="noteInput" placeholder="نسيت تحويل الوحدات" aria-label="اكتب خطأً وسببه" autocomplete="off">' +
+    '<button id="noteAdd" type="button">أضف</button></div>' +
+    (p.notes && p.notes.length
+      ? '<ul class="nlist">' + p.notes.map((n, k) =>
+          '<li><span>' + esc(n) + '</span><button type="button" class="noprint" data-note="' + k + '" aria-label="احذف">×</button></li>').join('') + '</ul>'
+      : '<p class="note">لا أخطاء مسجّلة بعد.</p>') +
+    '</div>';
+
+  h += '<div class="card"><p class="lbl">آخر ساعة قبل الامتحان</p>' +
+    '<div class="final"><p class="body">لا تحل مسائل جديدة ولا تفتح موضوعًا لم تدرسه. ' +
+    'اكتب من الذاكرة قوانين ' + esc(p.top.join('، ')) + ' فقط، ثم امرر عينك على دفتر أخطائك، ثم أغلق كل شيء ونم إن استطعت. ' +
+    'الساعة الأخيرة تُستخدم للتثبيت، ومحاولة التعلم فيها تمحو ما ثبت.</p></div>' +
+    '<div class="btnrow noprint" style="margin-top:14px">' +
+      '<button class="ghost" id="ics" type="button">' + (PRO ? 'أضف الجلسات إلى تقويم جوالك' : '🔒 تذكيرات التقويم — برو') + '</button>' +
+      '<button class="ghost" id="notif" type="button">فعّل التنبيهات</button>' +
+      '<button class="ghost" id="editPlan" type="button">عدّل المواضيع</button>' +
+      '<button class="ghost" id="printBtn" type="button">اطبع</button>' +
+      '<button class="ghost" id="backBtn" type="button">رجوع</button>' +
+      '<button class="ghost" id="newPlan" type="button">خطة جديدة</button>' +
+    '</div></div>';
+
+  $('setup').hidden = true;
+  $('plan').innerHTML = h;
+  $('saved').innerHTML = '';
+  wirePlan();
+  startClock();
+  if(keepScroll) window.scrollTo(0, y);
+}
+
+function startClock(){
+  clearInterval(CLOCK);
+  CLOCK = setInterval(() => {
+    const el = $('clockNum');
+    if(!el || !CUR){ clearInterval(CLOCK); return; }
+    el.textContent = fmtLeft(hoursLeft());
+  }, 30000);
+}
+
+function wirePlan(){
+  const P = $('plan');
+  P.querySelectorAll('.chk').forEach(cb => cb.onchange = () => {
+    const d = +cb.dataset.d, j = +cb.dataset.b;
+    CUR.days[d][j].done = cb.checked;
+    savePlan(CUR); showPlan(true);
+    const back = $('plan').querySelector('[data-d="' + d + '"][data-b="' + j + '"]');
+    if(back) back.focus();
+  });
+  P.querySelectorAll('[data-start]').forEach(b => b.onclick = () => {
+    const a = b.dataset.start.split('-').map(Number);
+    startSession(a[0], a[1]);
+  });
+  const now = $('startNow');
+  if(now) now.onclick = () => { const n = nextUndone(); if(n) startSession(n[0], n[1]); };
+
+  $('ics').onclick    = () => { PRO ? exportICS() : showPro(); };
+  $('notif').onclick  = askNotify;
+  $('printBtn').onclick = () => window.print();
+  $('editPlan').onclick = () => {
+    EDIT = CUR.created;
+    $('name').value = CUR.name || '';
+    $('exam').value = CUR.exam;
+    $('hours').value = CUR.perDay;
+    fillRows((CUR.topics && CUR.topics.length ? CUR.topics : null) ||
+             CUR.days.flat().map(b => ({name:b.name, w:3, c:b.c})));
+    $('make').textContent = 'أعد بناء الخطة';
+    leavePlan();
+    toast('عدّل المواضيع ثم أعد بناء الخطة — ما أنجزته يبقى محفوظًا');
+  };
+  $('backBtn').onclick = () => { EDIT = null; $('make').textContent = 'اصنع الخطة'; restoreDraft(); leavePlan(); };
+  $('newPlan').onclick = () => {
+    if(!PRO && PLANS.length >= FREE_PLANS){ showPro(); return; }
+    EDIT = null; $('make').textContent = 'اصنع الخطة';
+    $('name').value = ''; fillRows(null); leavePlan();
+  };
+
+  const ni = $('noteInput'), na = $('noteAdd');
+  const addNote = () => {
+    const v = ni.value.trim();
+    if(!v) return;
+    CUR.notes = CUR.notes || [];
+    CUR.notes.unshift(v.slice(0, 200));
+    savePlan(CUR); showPlan(true); toast('أُضيف إلى دفتر الأخطاء');
+  };
+  na.onclick = addNote;
+  ni.onkeydown = e => { if(e.key === 'Enter'){ e.preventDefault(); addNote(); } };
+  P.querySelectorAll('[data-note]').forEach(b => b.onclick = () => {
+    CUR.notes.splice(+b.dataset.note, 1); savePlan(CUR); showPlan(true);
+  });
+}
+
+function leavePlan(){
+  clearInterval(CLOCK);
+  CUR = null;
+  $('plan').innerHTML = '';
+  $('setup').hidden = false;
+  renderSaved();
+  window.scrollTo(0, 0);
+}
+
+/* ═══ الجلسة والمؤقت ═══ */
+let TICK = null, TS = null, WAKE = null, LASTFOCUS = null;
+/* TS = {d, j, plan, total, endsAt, left, paused, mode:'work'|'break'|'done'} */
+
+function startSession(d, j){
+  const b = CUR.days[d][j];
+  TS = { d, j, plan: CUR.created, total: b.blk * 60, endsAt: Date.now() + b.blk * 60000,
+         left: b.blk * 60, paused: false, mode: 'work' };
+  $('tTask').textContent = b.name;
+  $('tAct').textContent  = actions(b.c, b.rep);
+  openTimer();
+}
+function startBreak(){
+  TS = { d: TS ? TS.d : 0, j: TS ? TS.j : 0, plan: CUR.created, total: BREAK_MIN * 60,
+         endsAt: Date.now() + BREAK_MIN * 60000, left: BREAK_MIN * 60, paused: false, mode: 'break' };
+  $('tTask').textContent = 'استراحة';
+  $('tAct').textContent  = 'قف، اشرب ماءً، ولا تفتح هاتفك — الاستراحة التي تُملأ بالتمرير ليست استراحة.';
+  openTimer();
+}
+function openTimer(){
+  LASTFOCUS = document.activeElement;
+  $('timer').hidden = false;
+  paintTimer(); setButtons();
+  clearInterval(TICK); TICK = setInterval(paintTimer, 250);
+  saveTimer(); requestWake();
+}
+function timeLeft(){
+  if(!TS) return 0;
+  return TS.paused ? TS.left : Math.max(0, Math.round((TS.endsAt - Date.now()) / 1000));
+}
+function paintTimer(){
+  if(!TS) return;
+  const left = timeLeft();
+  $('tNum').textContent = pad(Math.floor(left / 60)) + ':' + pad(left % 60);
+  $('tRing').style.strokeDashoffset = RING * (1 - clamp(left / TS.total, 0, 1));
+  $('tRing').style.stroke = TS.mode === 'break' ? 'var(--lamp)' : 'var(--marker)';
+  $('tState').textContent = TS.mode === 'done' ? 'انتهى الوقت'
+                          : TS.paused ? 'متوقف مؤقتًا'
+                          : TS.mode === 'break' ? 'استراحة ' + arN(BREAK_MIN, MIN) : '';
+  if(!TS.paused && TS.mode !== 'done' && left <= 0) finishNaturally();
+}
+function setButtons(){
+  const b = $('tBtns');
+  let html = '';
+  if(TS.mode === 'done'){
+    html = '<button class="pri" data-act="break" type="button">استراحة ' + arN(BREAK_MIN, MIN) + '</button>' +
+           '<button class="sec" data-act="next" type="button">الجلسة التالية</button>' +
+           '<button class="sec" data-act="close" type="button">إغلاق</button>';
+  } else if(TS.mode === 'break'){
+    html = '<button class="pri" data-act="next" type="button">الجلسة التالية</button>' +
+           '<button class="sec" data-act="close" type="button">إغلاق</button>';
+  } else {
+    html = '<button class="pri" data-act="finish" type="button">أنهيت الجلسة</button>' +
+           '<button class="sec" data-act="pause" type="button">' + (TS.paused ? 'استئناف' : 'إيقاف مؤقت') + '</button>' +
+           '<button class="sec" data-act="plus" type="button">+٥ دقائق</button>' +
+           '<button class="sec" data-act="quit" type="button">خروج</button>';
+  }
+  b.innerHTML = html;
+  b.querySelectorAll('button').forEach(x => x.onclick = () => act(x.dataset.act));
+  const first = b.querySelector('button');
+  if(first && !$('timer').contains(document.activeElement)) first.focus();
+}
+function act(a){
+  if(a === 'pause'){
+    if(TS.paused){ TS.endsAt = Date.now() + TS.left * 1000; TS.paused = false; requestWake(); }
+    else { TS.left = timeLeft(); TS.paused = true; releaseWake(); }
+    saveTimer(); setButtons(); paintTimer();
+  }
+  else if(a === 'plus'){
+    TS.total += 300;
+    if(TS.paused) TS.left += 300; else TS.endsAt += 300000;
+    if(TS.mode === 'done'){ TS.mode = 'work'; clearInterval(TICK); TICK = setInterval(paintTimer, 250); setButtons(); }
+    saveTimer(); paintTimer(); toast('أُضيفت خمس دقائق');
+  }
+  else if(a === 'finish') completeSession(true);
+  else if(a === 'quit')   completeSession(false);
+  else if(a === 'break')  startBreak();
+  else if(a === 'next'){
+    const n = nextUndone();
+    if(n) startSession(n[0], n[1]);
+    else { closeTimer(); toast('لا جلسات متبقية'); }
+  }
+  else if(a === 'close') closeTimer();
+}
+/* انتهى الوقت وحده: تُسجَّل الجلسة وتُعرض الاستراحة */
+function finishNaturally(){
+  clearInterval(TICK); TICK = null;
+  markDone(TS.total / 60, TS.mode === 'work');
+  if(TS.mode === 'break'){ closeTimer(); notify('انتهت الاستراحة', 'ارجع إلى جلستك التالية'); beep(); return; }
+  TS.mode = 'done'; TS.left = 0; TS.paused = true;
+  setButtons(); paintTimer();
+  notify('انتهت الجلسة', $('tTask').textContent + ' — خذ استراحة قصيرة');
+  beep();
+}
+/* إنهاء أو خروج يدوي */
+function completeSession(mark){
+  const spent = (TS.total - timeLeft()) / 60;
+  markDone(spent, mark);
+  closeTimer();
+  toast(mark ? 'أُنجزت الجلسة' : (spent >= 1 ? 'سُجّلت ' + arN(spent, MIN) : 'أُغلق المؤقت'));
+}
+function markDone(minutes, markBlock){
+  if(!TS || TS.mode === 'break'){ logMinutes(0, 0); return; }
+  logMinutes(minutes, markBlock ? 1 : 0);
+  if(markBlock && CUR && CUR.created === TS.plan){
+    const b = (CUR.days[TS.d] || [])[TS.j];
+    if(b && !b.done){ b.done = true; savePlan(CUR); }
+  }
+  if(CUR) showPlan(true);
+}
+function closeTimer(){
+  clearInterval(TICK); TICK = null; TS = null;
+  DB.del('jahiz_timer');
+  $('timer').hidden = true;
+  releaseWake();
+  if(LASTFOCUS && document.contains(LASTFOCUS)){ try{ LASTFOCUS.focus(); }catch(e){} }
+}
+function saveTimer(){
+  if(TS) DB.set('jahiz_timer', Object.assign({}, TS, {
+    task: $('tTask').textContent, act: $('tAct').textContent, at: Date.now()
+  }));
+}
+function restoreTimer(){
+  const s = DB.get('jahiz_timer', null);
+  if(!s || s.mode === 'done') { DB.del('jahiz_timer'); return; }
+  const plan = PLANS.find(p => p.created === s.plan);
+  const left = s.paused ? s.left : Math.round((s.endsAt - Date.now()) / 1000);
+  if(!plan || left <= 0){ DB.del('jahiz_timer'); return; }
+  CUR = plan; showPlan();
+  TS = { d:s.d, j:s.j, plan:s.plan, total:s.total, endsAt:s.endsAt, left:s.left, paused:s.paused, mode:s.mode };
+  $('tTask').textContent = s.task || '';
+  $('tAct').textContent  = s.act || '';
+  openTimer();
+}
+setInterval(() => { if(TS && !TS.paused) saveTimer(); }, 10000);
+
+/* لوحة المفاتيح داخل المؤقت + حبس التركيز */
+document.addEventListener('keydown', e => {
+  if(!$('sheet').hidden && e.key === 'Escape'){ e.preventDefault(); $('sheet').hidden = true; return; }
+  if($('timer').hidden) return;
+  if(e.key === 'Escape'){ e.preventDefault(); act(TS && TS.mode === 'work' ? 'quit' : 'close'); }
+  else if(e.key === ' ' && TS && TS.mode === 'work'){ e.preventDefault(); act('pause'); }
+  else if(e.key === 'Tab'){
+    const f = [...$('tBtns').querySelectorAll('button')];
+    if(!f.length) return;
+    const i = f.indexOf(document.activeElement);
+    e.preventDefault();
+    f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+  }
+});
+
+/* إبقاء الشاشة مضاءة أثناء الجلسة */
+async function requestWake(){
+  try{ if('wakeLock' in navigator && !WAKE) WAKE = await navigator.wakeLock.request('screen'); }catch(e){}
+}
+function releaseWake(){ try{ if(WAKE){ WAKE.release(); WAKE = null; } }catch(e){} }
+document.addEventListener('visibilitychange', () => {
+  if(document.visibilityState === 'visible'){ if(TS && !TS.paused) requestWake(); }
+  else releaseWake();
+});
+
+function beep(){
+  if(!PREFS.sound) return;
+  try{
+    const A = window.AudioContext || window.webkitAudioContext; if(!A) return;
+    const a = new A(), o = a.createOscillator(), g = a.createGain();
+    o.connect(g); g.connect(a.destination); o.frequency.value = 660; o.type = 'sine';
+    g.gain.setValueAtTime(0.0001, a.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.25, a.currentTime + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + 1.1);
+    o.start(); o.stop(a.currentTime + 1.2);
+    setTimeout(() => { try{ a.close(); }catch(e){} }, 1600);
+  }catch(e){}
+}
+
+/* ═══ التنبيهات ═══ */
+function notify(title, body){
+  try{
+    if(window.Notification && Notification.permission === 'granted'){
+      new Notification(title, { body, lang:'ar', dir:'rtl' });
+      return;
+    }
+  }catch(e){}
+  toast(title + ' — ' + body);
+}
+function askNotify(){
+  if(!window.Notification){ toast('متصفحك لا يدعم التنبيهات'); return; }
+  if(Notification.permission === 'granted'){ notify('التنبيهات مفعّلة', 'سننبهك عند انتهاء كل جلسة'); return; }
+  if(Notification.permission === 'denied'){ toast('التنبيهات محجوبة — فعّلها من إعدادات الموقع في متصفحك'); return; }
+  Notification.requestPermission().then(p => {
+    if(p === 'granted') notify('تم التفعيل', 'سننبهك عند انتهاء كل جلسة');
+    else toast('لم تُفعَّل التنبيهات');
+  }).catch(() => {});
+}
+
+/* ═══ حفظ ملف — أو نسخه حين يمنع المتصفح التنزيل ═══ */
+function saveFile(name, mime, text, hint){
+  if(!EMBED){
+    try{
+      const blob = new Blob([text], { type: mime + ';charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = name;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      toast('نُزِّل ' + name);
+      return;
+    }catch(e){}
+  }
+  $('sheetNote').textContent = hint || ('احفظه باسم ' + name);
+  $('sheetText').value = text;
+  $('sheet').hidden = false;
+  $('sheetText').focus();
+}
+$('sheetClose').onclick = () => { $('sheet').hidden = true; };
+$('sheetCopy').onclick = () => {
+  const t = $('sheetText');
+  t.select();
+  const done = () => toast('نُسخ النص');
+  if(navigator.clipboard && navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t.value).then(done).catch(() => { try{ document.execCommand('copy'); done(); }catch(e){} });
+  else { try{ document.execCommand('copy'); done(); }catch(e){} }
+};
+
+/* ═══ تصدير إلى التقويم ═══
+   التنبيه داخل المتصفح يعمل والصفحة مفتوحة فقط. أما تقويم الجوال
+   فينبّهك حتى والتطبيق مغلق — ولهذا التصدير هو التذكير الحقيقي. */
+function icsTime(d){
+  return d.getUTCFullYear() + pad(d.getUTCMonth()+1) + pad(d.getUTCDate()) + 'T' +
+         pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z';
+}
+function icsEsc(s){ return String(s).replace(/([,;\\])/g, '\\$1').replace(/\n/g, '\\n'); }
+function exportICS(){
+  const L = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Foudah Labs//Jahiz//AR','CALSCALE:GREGORIAN'];
+  const startHour = clamp(+PREFS.startHour || 16, 0, 23);
+  const exam = new Date(CUR.exam);
+  let count = 0;
+  CUR.days.forEach((day, i) => {
+    let t = new Date(); t.setDate(t.getDate() + i); t.setHours(startHour, 0, 0, 0);
+    if(i === 0 && t < new Date()) t = new Date(Date.now() + 10 * 60000);
+    day.forEach((b, j) => {
+      if(b.done) return;
+      const s = new Date(t), e = new Date(t.getTime() + b.blk * 60000);
+      if(e >= exam) return;                       // لا جلسات بعد بدء الامتحان
+      L.push('BEGIN:VEVENT',
+        'UID:jahiz-' + CUR.created + '-' + i + '-' + j + '@foudahlabs',
+        'DTSTAMP:' + icsTime(new Date()),
+        'DTSTART:' + icsTime(s), 'DTEND:' + icsTime(e),
+        'SUMMARY:' + icsEsc((CUR.name || 'مذاكرة') + ' — ' + b.name),
+        'DESCRIPTION:' + icsEsc(actions(b.c, b.rep)),
+        'BEGIN:VALARM','TRIGGER:-PT10M','ACTION:DISPLAY','DESCRIPTION:جلسة مذاكرة بعد ١٠ دقائق','END:VALARM',
+        'END:VEVENT');
+      count++;
+      t = new Date(e.getTime() + BREAK_MIN * 2 * 60000);   // استراحة بين الجلسات
+    });
+  });
+  L.push('BEGIN:VEVENT', 'UID:jahiz-exam-' + CUR.created + '@foudahlabs',
+    'DTSTAMP:' + icsTime(new Date()), 'DTSTART:' + icsTime(exam),
+    'DTEND:' + icsTime(new Date(exam.getTime() + 7200000)),
+    'SUMMARY:' + icsEsc(CUR.name || 'الامتحان'),
+    'BEGIN:VALARM','TRIGGER:-PT2H','ACTION:DISPLAY','DESCRIPTION:الامتحان بعد ساعتين','END:VALARM',
+    'END:VEVENT');
+  L.push('END:VCALENDAR');
+
+  saveFile('jahiz-' + (CUR.name || 'plan').replace(/\s+/g, '-') + '.ics', 'text/calendar', L.join('\r\n'),
+    'انسخ النص واحفظه في ملف بامتداد ‎.ics ثم افتحه ليُضاف إلى تقويمك (' + arN(count, SESS) + ').');
+}
+
+/* ═══ النسخ الاحتياطي ═══ */
+$('expJson').onclick = () => {
+  saveFile('jahiz-backup.json', 'application/json',
+    JSON.stringify({ v:2, at:Date.now(), plans:PLANS, log:LOG, prefs:PREFS, pro:PRO }, null, 2),
+    'انسخ هذا النص واحفظه عندك. تستعيده لاحقًا من زر «استعد نسخة».');
+};
+$('impBtn').onclick = () => $('impFile').click();
+$('impFile').onchange = e => {
+  const f = e.target.files && e.target.files[0];
+  if(!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try{
+      const d = JSON.parse(r.result);
+      if(!d || !Array.isArray(d.plans)) throw new Error('bad');
+      const byId = {};
+      PLANS.concat(d.plans).forEach(p => { if(p && p.created && Array.isArray(p.days)) byId[p.created] = p; });
+      PLANS = Object.values(byId).sort((a,b) => b.created - a.created);
+      if(d.log && typeof d.log === 'object') LOG = Object.assign({}, LOG, d.log);
+      if(d.prefs) PREFS = Object.assign(PREFS, d.prefs);
+      if(d.pro) PRO = true;
+      if(!PRO) PLANS = PLANS.slice(0, FREE_PLANS);
+      DB.set('jahiz_plans', PLANS); DB.set('jahiz_log', LOG);
+      DB.set('jahiz_prefs', PREFS); DB.set('jahiz_pro', PRO);
+      syncPro(); applyTheme(); syncSettings(); renderSaved();
+      toast('استُعيدت ' + arN(PLANS.length, PLAN));
+    }catch(err){ toast('الملف غير صالح'); }
+    e.target.value = '';
+  };
+  r.readAsText(f);
+};
+$('wipe').onclick = () => {
+  if(!confirm('سيُمسح كل شيء: الخطط، الإحصاء، والإعدادات. متأكد؟')) return;
+  ['jahiz_plans','jahiz_log','jahiz_prefs','jahiz_pro','jahiz_draft','jahiz_timer'].forEach(DB.del);
+  location.reload();
+};
+$('startHour').onchange = () => {
+  PREFS.startHour = clamp(+$('startHour').value || 16, 0, 23);
+  $('startHour').value = PREFS.startHour;
+  DB.set('jahiz_prefs', PREFS); toast('حُفظ');
+};
+$('soundSel').onchange = () => {
+  PREFS.sound = $('soundSel').value === '1';
+  DB.set('jahiz_prefs', PREFS);
+};
+function syncSettings(){
+  $('startHour').value = PREFS.startHour;
+  $('soundSel').value = PREFS.sound ? '1' : '0';
+}
+
+/* ═══ برو ═══ */
+function syncPro(){ $('proBadge').hidden = !PRO; }
+function showPro(){
+  const host = CUR ? $('plan') : $('setup');
+  if(document.querySelector('.pro-box')) return;
+  const box = document.createElement('div');
+  box.className = 'pro-box noprint';
+  box.innerHTML = '<h3>جاهز برو</h3>' +
+    '<p>النسخة المجانية تكفي لامتحان واحد. برو لمن عنده أسبوع امتحانات كامل:</p>' +
+    '<ul>' +
+      '<li>مواضيع بلا حد (المجاني ' + FREE_TOPICS + ')</li>' +
+      '<li>خطط محفوظة لكل موادك، لا خطة واحدة</li>' +
+      '<li>تصدير الجلسات إلى تقويم جوالك مع تنبيهات</li>' +
+    '</ul>' +
+    '<div class="btnrow" style="margin-top:14px">' +
+      '<button class="ghost" id="buyBtn" type="button">اشترِ الآن</button>' +
+      '<button class="ghost" id="codeBtn" type="button">عندي رمز</button>' +
+      '<button class="ghost" id="proClose" type="button">لاحقًا</button>' +
+    '</div>';
+  host.prepend(box);
+  scrollTo_(box);
+  /* ⚠️ ضع رابط الدفع هنا */
+  $('buyBtn').onclick = () => { location.href = 'REPLACE-WITH-PAYMENT-LINK'; };
+  $('proClose').onclick = () => box.remove();
+  $('codeBtn').onclick = () => {
+    const c = prompt('أدخل رمز التفعيل');
+    if(!c) return;
+    if(c.trim().toUpperCase() === 'JAHIZ-PRO'){
+      PRO = true; DB.set('jahiz_pro', true); syncPro();
+      toast('تم تفعيل برو'); box.remove(); syncLimit();
+      if(CUR) showPlan(true);
+    } else toast('الرمز غير صحيح');
+  };
+}
+
+/* ═══ إنشاء الخطة ═══ */
+$('make').onclick = () => {
+  const topics = readRows();
+  if(!topics.length){ toast('أضف موضوعًا واحدًا على الأقل'); return; }
+
+  const examStr = $('exam').value;
+  const exam = new Date(examStr);
+  if(!examStr || isNaN(exam) || !(exam > new Date())){ toast('موعد الامتحان يجب أن يكون في المستقبل'); return; }
+  if((exam - new Date()) / 36e5 > 24 * 60){ toast('الموعد بعيد جدًا — جاهز للأيام الأخيرة قبل الامتحان'); return; }
+
+  const old = EDIT ? PLANS.find(p => p.created === EDIT) : null;
+  if(!old && !PRO && PLANS.length >= FREE_PLANS){ showPro(); return; }
+
+  let p = buildPlan({
+    name: $('name').value.trim(),
+    exam: examStr,
+    perDay: +$('hours').value || 4,
+    topics
+  });
+  if(old) p = carryOver(old, p);
+
+  EDIT = null; $('make').textContent = 'اصنع الخطة';
+  DB.del('jahiz_draft');
+  CUR = p; savePlan(p); showPlan();
+  scrollTo_($('plan'));
+};
+
+/* ═══ الإقلاع ═══ */
+function restoreDraft(){
+  const d = DB.get('jahiz_draft', null);
+  if(d && (d.topics || []).length){
+    $('name').value = d.name || '';
+    if(d.exam) $('exam').value = d.exam;
+    if(d.hours) $('hours').value = d.hours;
+    fillRows(d.topics);
+  }
+}
+(function boot(){
+  // الاتجاه من الجذر — تعمل الأداة كصفحة مستقلة أو مضمّنة داخل إطار
+  document.documentElement.setAttribute('dir', 'rtl');
+  document.documentElement.setAttribute('lang', 'ar');
+  applyTheme(); syncPro(); syncSettings();
+
+  const soon = new Date(); soon.setDate(soon.getDate() + 2); soon.setHours(8, 0, 0, 0);
+  $('exam').value = new Date(soon - soon.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+
+  fillRows(null);
+  restoreDraft();
+  renderSaved();
+
+  // افتح آخر خطة ما دام امتحانها لم يمضِ — من يفتح الأداة يريد جلسات اليوم
+  const live = PLANS.filter(p => new Date(p.exam) > new Date());
+  if(live.length){ CUR = live[0]; showPlan(); }
+
+  restoreTimer();
+
+  if(!EMBED && location.protocol.startsWith('http') && 'serviceWorker' in navigator){
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
+})();
+})();
+</script>
+</body>
+</html>

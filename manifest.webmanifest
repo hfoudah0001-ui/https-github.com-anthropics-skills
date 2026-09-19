@@ -1,0 +1,21 @@
+{
+  "name": "جاهز — خطة مذاكرة قبل الامتحان",
+  "short_name": "جاهز",
+  "description": "يوزّع وقتك الباقي على مواضيعك بالوزن والضعف، ويقول لك ما الذي لا يستحق أن تفتحه.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EAEEF2",
+  "theme_color": "#1F6F5C",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231F6F5C'/%3E%3Cpath d='M18 33l10 10 18-20' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
