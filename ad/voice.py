@@ -4,7 +4,9 @@
 يركّب مسار التعليق الصوتي: يضع كل جملة في لحظتها من الفيديو (٢٥ ثانية، ٤٤١٠٠).
 المقاطع نفسها تُولَّد من خدمة تركيب الكلام ثم تُنظَّف وتُحفظ في vo/*.wav.
 
-    python3 voice.py vo-track.wav
+    python3 voice.py vo-track.wav [مجلد الجمل]
+
+المجلد الافتراضي vo/ (صوت مولّد من خدمة)، و vo-free/ للنسخة المجانية.
 """
 import math, struct, sys, wave
 
@@ -34,7 +36,10 @@ def read_wav(path):
         vals = [(vals[i] + vals[i+1]) / 2 for i in range(0, len(vals), 2)]
     return [v / 32768.0 for v in vals]
 
+SRC = sys.argv[2] if len(sys.argv) > 2 else 'vo'
+
 for path, at in CUES:
+    path = path.replace('vo/', SRC + '/', 1)
     s = read_wav(path)
     fade = int(0.012 * SR)                        # تلاشٍ قصير يمنع الطقطقة
     for i in range(min(fade, len(s))):
